@@ -19,7 +19,7 @@ class Env
             throw new InvalidTypeException('string', gettype($value));
         }
 
-        return $val;
+        return $value;
     }
     
     /**
@@ -34,6 +34,6 @@ class Env
             throw new InvalidTypeException('bool', gettype($value));
         }
 
-        return $val;
+        return $value;
     }
 }
