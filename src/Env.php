@@ -14,8 +14,11 @@ class Env
      */
     public static function getString(string $key, string $default = ''): string
     {
-        is_string($val = SupportEnv::get($key, $default))
-            || throw new InvalidTypeException('string', gettype($val));
+        $value = SupportEnv::get($key, $default);
+        if (!is_string($value)) {
+            throw new InvalidTypeException('string', gettype($value));
+        }
+
         return $val;
     }
     
@@ -26,8 +29,11 @@ class Env
      */
     public static function getBool(string $key, string $default = ''): bool
     {
-        is_bool($val = SupportEnv::get($key, $default))
-            || throw new InvalidTypeException('bool', gettype($val));
+        $value = SupportEnv::get($key, $default);
+        if (!is_bool($value)) {
+            throw new InvalidTypeException('bool', gettype($value));
+        }
+
         return $val;
     }
 }
