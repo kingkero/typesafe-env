@@ -1,0 +1,27 @@
+{
+    "name": "kero/typesafe-env",
+    "description": "Wrapper around Laravel's Env to support type safety.",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.0.1",
+    "support": {
+        "issues": "https://github.com/kingkero/typesafe-env/issues",
+        "source": "https://github.com/kingkero/typesafe-env"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kero\\TypeSafeEnv\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Martin Rehberger",
+            "email": "dev@kero.codes"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0"
+    }
+}
