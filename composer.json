@@ -3,7 +3,7 @@
     "description": "Wrapper around Laravel's Env to support type safety.",
     "type": "library",
     "license": "MIT",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "support": {
         "issues": "https://github.com/kingkero/typesafe-env/issues",
         "source": "https://github.com/kingkero/typesafe-env"
