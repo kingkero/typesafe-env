@@ -11,6 +11,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+
+      - name: Install composer and dependencies
+        uses: php-actions/composer@v6
+      
+      - name: Prepare Application
+        run: |
+          cp .env.testing .env
+      
+      - name: Pest Test
+        run: vendor/bin/pest /app/tests/  --coverage --coverage-clover clover.xml
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
