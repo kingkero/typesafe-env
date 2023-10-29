@@ -4,6 +4,7 @@ namespace Kero\TypeSafeEnv;
 
 use Illuminate\Support\Env as SupportEnv;
 use Kero\TypeSafeEnv\Exceptions\InvalidTypeException;
+use phpDocumentor\Reflection\Types\Null_;
 
 class Env
 {
@@ -17,6 +18,23 @@ class Env
         $value = SupportEnv::get($key, $default);
         if (!is_string($value)) {
             throw new InvalidTypeException('string', gettype($value));
+        }
+
+        return $value;
+    }
+
+    /**
+     * Get **string** or **null** value of an environment variable.
+     *
+     * @param string $key
+     * @param string|null $default (optional) default `null`
+     * @return string|null
+     */
+    public static function getNullableString(string $key, string|null $default = null): string|null
+    {
+        $value = SupportEnv::get($key, $default);
+        if (!is_string($value) && !is_null($value)) {
+            throw new InvalidTypeException('string|null', gettype($value));
         }
 
         return $value;
