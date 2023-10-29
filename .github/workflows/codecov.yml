@@ -22,12 +22,8 @@ jobs:
       - name: Install composer and dependencies
         uses: php-actions/composer@v6
       
-      - name: Prepare Application
-        run: |
-          cp .env.testing .env
-      
       - name: Pest Test
-        run: vendor/bin/pest tests/  --coverage --coverage-clover clover.xml
+        run: vendor/bin/pest tests/ -c phpunit.xml  --coverage --coverage-clover clover.xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
