@@ -15,7 +15,7 @@ it('should return "Hello World!" for the defined string', function () {
     ;
 });
 
-it('should return an empty string for undefined variables', function () {
+it('should default to empty string for an undefined variable', function () {
     expect(Env::getString('UNDEFINED'))
         ->toBeString()
         ->toBe('')
