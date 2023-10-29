@@ -8,7 +8,7 @@ use Kero\TypeSafeEnv\Exceptions\InvalidTypeException;
 class Env
 {
     /**
-     * Get **string** value of an environment variable.
+     * Get `string` value of an environment variable.
      *
      * @throws InvalidTypeException
      */
@@ -23,7 +23,7 @@ class Env
     }
 
     /**
-     * Get **string** or **null** value of an environment variable.
+     * Get `string` or `null` value of an environment variable.
      *
      * @throws InvalidTypeException
      */
@@ -38,7 +38,7 @@ class Env
     }
 
     /**
-     * Get **bool** value of an environment variable.
+     * Get `bool` value of an environment variable.
      *
      * @throws InvalidTypeException
      */
