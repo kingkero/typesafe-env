@@ -18,7 +18,7 @@ class Env
             || throw new InvalidTypeException('string', gettype($val));
         return $val;
     }
-    
+
     /**
      * Get **bool** value of an environment variable.
      *
