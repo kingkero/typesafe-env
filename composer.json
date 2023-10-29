@@ -27,7 +27,7 @@
         "vlucas/phpdotenv": "^5.5"
     },
     "require-dev": {
-        "laravel/pint": "^0.1.2",
+        "laravel/pint": "^0.1.2 || ^1.0.0",
         "pestphp/pest": "^2.24"
     },
     "config": {
