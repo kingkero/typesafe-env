@@ -16,8 +16,8 @@ APP_LOG=false
 use Kero\TypeSafeEnv\Env;
 
 var_dump(Env::getString('API_URL')); // string(3) "foo"
-var_dum(Env::getBool('APP_DEBUG')); // bool(true)
-var_dum(Env::getBool('APP_LOG')); // bool(false)
+var_dump(Env::getBool('APP_DEBUG')); // bool(true)
+var_dump(Env::getBool('APP_LOG'));   // bool(false)
 ```
 
 ## Local Development
