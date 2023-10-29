@@ -9,17 +9,11 @@ beforeAll(function () {
 });
 
 it('should return true for an env with value "true"', function () {
-    expect(Env::getBool('TEST_BOOL_TRUE'))
-        ->toBeBool()
-        ->toBe(true)
-    ;
+    expect(Env::getBool('TEST_BOOL_TRUE'))->toBeTrue();
 });
 
 it('should return true for an env with value "TRUE" (uppercase)', function () {
-    expect(Env::getBool('TEST_BOOL_TRUE_UPPERCASE'))
-        ->toBeBool()
-        ->toBe(true)
-    ;
+    expect(Env::getBool('TEST_BOOL_TRUE_UPPERCASE'))->toBeTrue();
 });
 
 it('should throw an exception for trying to get a bool that is a string', function () {
@@ -27,17 +21,11 @@ it('should throw an exception for trying to get a bool that is a string', functi
 })->throws(InvalidTypeException::class, 'Expected `boolean` but received `string`.');
 
 it('should return false for an env with value "false"', function () {
-    expect(Env::getBool('TEST_BOOL_FALSE'))
-        ->toBeBool()
-        ->toBe(false)
-    ;
+    expect(Env::getBool('TEST_BOOL_FALSE'))->toBeFalse();
 });
 
 it('should return false for an env with value "FALSE" (uppercase)', function () {
-    expect(Env::getBool('TEST_BOOL_FALSE_UPPERCASE'))
-        ->toBeBool()
-        ->toBe(false)
-    ;
+    expect(Env::getBool('TEST_BOOL_FALSE_UPPERCASE'))->toBeFalse();
 });
 
 it('should default to false for an undefined variable', function () {
