@@ -2,6 +2,9 @@
 
 Install via `composer req kero/typesafe-env`
 
+[![codecov](https://codecov.io/gh/kingkero/typesafe-env/graph/badge.svg?token=4EAAZYEAN3)](https://codecov.io/gh/kingkero/typesafe-env) ![GitHub latest tag](https://img.shields.io/github/v/tag/kingkero/typesafe-env)
+
+
 ## Usage
 
 Assuming the following environment variables
