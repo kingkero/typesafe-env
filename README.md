@@ -49,6 +49,12 @@ make test
 
 ❗ Tests are relying on the environment variables defined in _.env.testing_
 
+[Type Coverage](https://pestphp.com/docs/type-coverage) can also be tested via Pest. Current implementation inside _Makefile_ is buggy ... (TODO: fix so command in Makefile via Docker can be used)
+
+```bash
+./vendor/bin/pest --type-coverage --min=100
+```
+
 ### Code Analysis
 
 [PHPStan](https://phpstan.org/) is configured to check `./src/` and `./tests/` via
