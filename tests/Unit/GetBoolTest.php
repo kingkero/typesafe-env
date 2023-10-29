@@ -39,3 +39,7 @@ it('should return false for an env with value "FALSE" (uppercase)', function () 
         ->toBe(false)
     ;
 });
+
+it('should default to false for an undefined variable', function () {
+    expect(Env::getBool('UNDEFINED'))->toBeFalse();
+});
