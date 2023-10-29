@@ -4,4 +4,4 @@ pint:
 	docker container run --rm -v $(DIR):/app/ php:8.2-cli /app/vendor/bin/pint /app/
 
 test:
-	docker container run --env-file .env.testing --rm -v $(DIR):/app/ php:8.2-cli /app/vendor/bin/pest /app/tests/
+	docker container run --rm -v $(DIR):/app/ php:8.2-cli /app/vendor/bin/pest /app/tests/
