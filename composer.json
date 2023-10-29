@@ -3,7 +3,7 @@
     "description": "Wrapper around Laravel's Env to support type safety.",
     "type": "library",
     "license": "MIT",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "support": {
         "issues": "https://github.com/kingkero/typesafe-env/issues",
         "source": "https://github.com/kingkero/typesafe-env"
@@ -28,7 +28,9 @@
     },
     "require-dev": {
         "laravel/pint": "^0.1.2 || ^1.0.0",
-        "pestphp/pest": "^2.24"
+        "pestphp/pest": "^2.24",
+        "phpstan/phpstan": "^1.10",
+        "pestphp/pest-plugin-type-coverage": "^2.4"
     },
     "config": {
         "allow-plugins": {
