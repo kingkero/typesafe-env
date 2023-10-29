@@ -21,7 +21,7 @@ class Env
 
         return $value;
     }
-    
+
     /**
      * Get **bool** value of an environment variable.
      *
@@ -31,7 +31,7 @@ class Env
     {
         $value = SupportEnv::get($key, $default);
         if (!is_bool($value)) {
-            throw new InvalidTypeException('bool', gettype($value));
+            throw new InvalidTypeException('boolean', gettype($value));
         }
 
         return $value;
