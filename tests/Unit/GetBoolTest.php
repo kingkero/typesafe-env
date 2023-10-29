@@ -3,6 +3,11 @@
 use Kero\TypeSafeEnv\Env;
 use Kero\TypeSafeEnv\Exceptions\InvalidTypeException;
 
+beforeAll(function () {
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../', '.env.testing');
+    $dotenv->load();
+});
+
 it('should return true for an env with value "true"', function () {
     expect(Env::getBool('TEST_BOOL_TRUE'))
         ->toBeBool()
