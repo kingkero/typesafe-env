@@ -40,3 +40,11 @@ make test
 ```
 
 ❗ Tests are relying on the environment variables defined in _.env.testing_
+
+### Code Analysis
+
+[PHPStan](https://phpstan.org/) is configured to check `./src/` and `./tests/` via
+
+```bash
+make analyse
+```
