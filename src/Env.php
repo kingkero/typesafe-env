@@ -27,7 +27,7 @@ class Env
      *
      * @throws InvalidTypeException
      */
-    public static function getBool(string $key, string $default = ''): bool
+    public static function getBool(string $key, bool $default = false): bool
     {
         $value = SupportEnv::get($key, $default);
         if (!is_bool($value)) {
