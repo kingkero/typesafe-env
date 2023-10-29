@@ -51,4 +51,19 @@ class Env
 
         return $value;
     }
+
+    /**
+     * Get `bool` or `null` value of an environment variable.
+     *
+     * @throws InvalidTypeException
+     */
+    public static function getNullableBool(string $key, bool|null $default = null): bool|null
+    {
+        $value = SupportEnv::get($key, $default);
+        if (!is_bool($value) && !is_null($value)) {
+            throw new InvalidTypeException('boolean|null', gettype($value));
+        }
+
+        return $value;
+    }
 }
