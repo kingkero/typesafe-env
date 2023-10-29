@@ -8,17 +8,25 @@ Assuming the following environment variables
 
 ```shell
 API_URL=foo
+APP_STRING_OR_NULL=null
+
 APP_DEBUG=true
 APP_LOG=false
+APP_BOOL_OR_NULL=null
 ```
 
 ```php
 use Kero\TypeSafeEnv\Env;
 
 var_dump(Env::getString('API_URL')); // string(3) "foo"
+var_dump(Env::getNullableString('APP_STRING_OR_NULL')); // NULL
+
 var_dump(Env::getBool('APP_DEBUG')); // bool(true)
-var_dump(Env::getBool('APP_LOG'));   // bool(false)
+var_dump(Env::getBool('APP_LOG')); // bool(false)
+var_dump(Env::getNullableBool('APP_BOOL_OR_NULL')); // NULL
 ```
+
+❗ Due to Laravel's implementation, both values `null` and `(null)` are treated as `NULL`.
 
 ## Local Development
 
