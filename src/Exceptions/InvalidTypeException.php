@@ -14,7 +14,7 @@ class InvalidTypeException extends RuntimeException
         Throwable|null $previous = null
     ) {
         parent::__construct(
-            sprintf('Expected %s but received %s.', $expectedType, $actualType),
+            sprintf('Expected `%s` but received `%s`.', $expectedType, $actualType),
             $code,
             $previous,
         );
