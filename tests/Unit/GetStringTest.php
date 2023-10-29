@@ -17,6 +17,6 @@ it('should return an empty string for undefined variables', function () {
     ;
 });
 
-it('should throw an InvalidTypeException for a bool variable', function() {
+it('should throw an InvalidTypeException for a bool variable', function () {
     Env::getString('TEST_BOOL_TRUE');
 })->throws(InvalidTypeException::class, 'Expected `string` but received `boolean`.');
