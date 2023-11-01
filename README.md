@@ -66,3 +66,11 @@ make test
 ```bash
 make analyse
 ```
+
+### Various
+
+- normalize _composer.json_ file via [`ergebnis/composer-normalize`](https://github.com/ergebnis/composer-normalize)
+
+```bash
+composer normalize
+```

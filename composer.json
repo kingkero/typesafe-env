@@ -1,25 +1,19 @@
 {
     "name": "kero/typesafe-env",
     "description": "Wrapper around Laravel's Env to support type safety.",
-    "type": "library",
     "license": "MIT",
+    "type": "library",
     "version": "0.0.4",
-    "support": {
-        "issues": "https://github.com/kingkero/typesafe-env/issues",
-        "source": "https://github.com/kingkero/typesafe-env"
-    },
-    "autoload": {
-        "psr-4": {
-            "Kero\\TypeSafeEnv\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Martin Rehberger",
             "email": "dev@kero.codes"
         }
     ],
-    "minimum-stability": "stable",
+    "support": {
+        "issues": "https://github.com/kingkero/typesafe-env/issues",
+        "source": "https://github.com/kingkero/typesafe-env"
+    },
     "require": {
         "php": "^8.1",
         "illuminate/support": "^10.0",
@@ -27,13 +21,21 @@
         "vlucas/phpdotenv": "^5.5"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.39",
         "laravel/pint": "^0.1.2 || ^1.0.0",
         "pestphp/pest": "^2.24",
-        "phpstan/phpstan": "^1.10",
-        "pestphp/pest-plugin-type-coverage": "^2.4"
+        "pestphp/pest-plugin-type-coverage": "^2.4",
+        "phpstan/phpstan": "^1.10"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Kero\\TypeSafeEnv\\": "src/"
+        }
     },
     "config": {
         "allow-plugins": {
+            "ergebnis/composer-normalize": true,
             "pestphp/pest-plugin": true
         }
     }
