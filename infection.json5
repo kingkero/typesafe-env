@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/infection/infection/0.27.6/resources/schema.json",
+    "testFramework": "pest",
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "mutators": {
+        "@default": true
+    }
+}
