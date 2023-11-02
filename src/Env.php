@@ -16,7 +16,7 @@ class Env
     {
         $value = SupportEnv::get($key, $default);
         if (!is_string($value)) {
-            throw new InvalidTypeException('string', gettype($value));
+            throw new InvalidTypeException($key, 'string', $value);
         }
 
         return $value;
@@ -31,7 +31,7 @@ class Env
     {
         $value = SupportEnv::get($key, $default);
         if (!is_string($value) && !is_null($value)) {
-            throw new InvalidTypeException('string|null', gettype($value));
+            throw new InvalidTypeException($key, 'string|null', $value);
         }
 
         return $value;
@@ -46,7 +46,7 @@ class Env
     {
         $value = SupportEnv::get($key, $default);
         if (!is_bool($value)) {
-            throw new InvalidTypeException('boolean', gettype($value));
+            throw new InvalidTypeException($key, 'boolean', $value);
         }
 
         return $value;
@@ -61,7 +61,7 @@ class Env
     {
         $value = SupportEnv::get($key, $default);
         if (!is_bool($value) && !is_null($value)) {
-            throw new InvalidTypeException('boolean|null', gettype($value));
+            throw new InvalidTypeException($key, 'boolean|null', $value);
         }
 
         return $value;
@@ -76,7 +76,7 @@ class Env
     {
         $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_INT);
         if ($value === false) {
-            throw new InvalidTypeException('int', 'unknown'); // TODO: fix exception
+            throw new InvalidTypeException($key, 'int', $value);
         }
         return $value;
     }
@@ -94,7 +94,7 @@ class Env
         }
         $filteredInt = filter_var($value, FILTER_VALIDATE_INT);
         if ($filteredInt === false) {
-            throw new InvalidTypeException('int|null', 'unknown'); // TODO: fix exception
+            throw new InvalidTypeException($key, 'int|null', $value);
         }
         return $filteredInt;
     }
@@ -108,7 +108,7 @@ class Env
     {
         $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_FLOAT);
         if ($value === false) {
-            throw new InvalidTypeException('float', 'unknown'); // TODO: fix exception
+            throw new InvalidTypeException($key, 'float', $value);
         }
         return $value;
     }
@@ -126,7 +126,7 @@ class Env
         }
         $filteredFloat = filter_var($value, \FILTER_VALIDATE_FLOAT);
         if ($filteredFloat === false) {
-            throw new InvalidTypeException('float|null', 'unknown'); // TODO: fix exception
+            throw new InvalidTypeException($key, 'float|null', $value);
         }
         return $filteredFloat;
     }
