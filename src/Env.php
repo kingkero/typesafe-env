@@ -97,6 +97,6 @@ class Env
         if (!is_int($filteredInt)) {
             throw new InvalidTypeException('int|null', 'unkown'); // TODO: fix exception
         }
-        return $value;
+        return $filteredInt;
     }
 }
