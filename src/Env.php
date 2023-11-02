@@ -75,7 +75,7 @@ class Env
     public static function getInt(string $key, int $default = 0): int
     {
         $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_INT);
-        if (!is_int($value)) {
+        if ($value === false) {
             throw new InvalidTypeException('int', 'unkown'); // TODO: fix exception
         }
         return $value;
@@ -93,7 +93,7 @@ class Env
             return $value;
         }
         $filteredInt = filter_var($value, FILTER_VALIDATE_INT);
-        if (!is_int($filteredInt)) {
+        if ($filteredInt === false) {
             throw new InvalidTypeException('int|null', 'unkown'); // TODO: fix exception
         }
         return $filteredInt;
@@ -107,7 +107,7 @@ class Env
     public static function getFloat(string $key, float $default = 0.0): float
     {
         $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_FLOAT);
-        if (!is_float($value)) {
+        if ($value === false) {
             throw new InvalidTypeException('float', 'unkown'); // TODO: fix exception
         }
         return $value;
@@ -125,7 +125,7 @@ class Env
             return $value;
         }
         $filteredFloat = filter_var($value, \FILTER_VALIDATE_FLOAT);
-        if (!is_float($filteredFloat)) {
+        if ($filteredFloat === false) {
             throw new InvalidTypeException('float|null', 'unkown'); // TODO: fix exception
         }
         return $filteredFloat;
