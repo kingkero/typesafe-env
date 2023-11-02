@@ -4,6 +4,7 @@ namespace Kero\TypeSafeEnv;
 
 use Illuminate\Support\Env as SupportEnv;
 use Kero\TypeSafeEnv\Exceptions\InvalidTypeException;
+use phpDocumentor\Reflection\Types\Null_;
 
 class Env
 {
@@ -77,6 +78,24 @@ class Env
         $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_INT);
         if (!is_int($value)) {
             throw new InvalidTypeException('int', 'unkown'); // TODO: fix exception
+        }
+        return $value;
+    }
+
+    /**
+     * Get `int` or `null` value of an environment variable.
+     *
+     * @throws InvalidTypeException
+     */
+    public static function getNullableInt(string $key, int|null $default = null): int|null
+    {
+        $value = SupportEnv::get($key, $default);
+        if ($value === null) {
+            return $value;
+        }
+        $filteredInt = filter_var($value, FILTER_VALIDATE_INT);
+        if (!is_int($filteredInt)) {
+            throw new InvalidTypeException('int|null', 'unkown'); // TODO: fix exception
         }
         return $value;
     }
