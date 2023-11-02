@@ -25,11 +25,11 @@ jobs:
       - name: PHPStan analysis
         run: vendor/bin/phpstan analyse
       
-      - name: Pest Test
-        run: vendor/bin/pest tests/ -c phpunit.xml  --coverage --coverage-clover clover.xml
-      
       - name: Pest Type Coverage
         run: vendor/bin/pest tests/ -c phpunit.xml  --type-coverage --min=100
+      
+      - name: Pest Test
+        run: vendor/bin/pest tests/ -c phpunit.xml  --coverage --coverage-clover clover.xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
