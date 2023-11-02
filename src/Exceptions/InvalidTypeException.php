@@ -14,7 +14,7 @@ class InvalidTypeException extends RuntimeException
         int $code = 0,
         Throwable|null $previous = null
     ) {
-        return parent::__construct(
+        parent::__construct(
             sprintf(
                 'env(%s) expected `%s`, got %s',
                 $key,
