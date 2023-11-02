@@ -8,23 +8,17 @@ beforeAll(function () {
     $dotenv->load();
 });
 
-it('should return null for a variable with content "null" and using string getter', function () {
-    expect(Env::getNullableString('TEST_NULL'))->toBeNull();
-    expect(Env::getNullableBool('TEST_NULL'))->toBeNull();
-    expect(Env::getNullableInt('TEST_NULL'))->toBeNull();
-});
+it('should return null for value "null"', function (callable $method) {
+    expect($method('TEST_NULL'))->toBeNull();
+})->with('nullableMethods');
 
-it('should return null for a variable with content "(null)" and using string getter', function () {
-    expect(Env::getNullableString('TEST_NULL_BRACKETED'))->toBeNull();
-    expect(Env::getNullableBool('TEST_NULL_BRACKETED'))->toBeNull();
-    expect(Env::getNullableInt('TEST_NULL_BRACKETED'))->toBeNull();
-});
+it('should return null for value "(null)"', function (callable $method) {
+    expect($method('TEST_NULL_BRACKETED'))->toBeNull();
+})->with('nullableMethods');
 
-it('should default to null for an undefined variable', function () {
-    expect(Env::getNullableString('UNDEFINED'))->toBeNull();
-    expect(Env::getNullableBool('UNDEFINED'))->toBeNull();
-    expect(Env::getNullableInt('UNDEFINED'))->toBeNull();
-});
+it('should default to null for an undefined variable', function (callable $method) {
+    expect($method('UNDEFINED'))->toBeNull();
+})->with('nullableMethods');
 
 it('should throw an InvalidTypeException for a bool variable when using getNullableString', function () {
     Env::getNullableString('TEST_BOOL_TRUE');
