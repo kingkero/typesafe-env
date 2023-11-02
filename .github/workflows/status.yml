@@ -1,0 +1,31 @@
+name: Status
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: composer:v2
+          coverage: xdebug
+
+      - name: Install Dependencies
+        uses: php-actions/composer@v6
+      
+      - name: Pest Test
+        run: vendor/bin/pest tests/ -c phpunit.xml  --coverage --coverage-clover clover.xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
