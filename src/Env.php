@@ -76,7 +76,7 @@ class Env
     {
         $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_INT);
         if ($value === false) {
-            throw new InvalidTypeException('int', 'unkown'); // TODO: fix exception
+            throw new InvalidTypeException('int', 'unknown'); // TODO: fix exception
         }
         return $value;
     }
@@ -94,7 +94,7 @@ class Env
         }
         $filteredInt = filter_var($value, FILTER_VALIDATE_INT);
         if ($filteredInt === false) {
-            throw new InvalidTypeException('int|null', 'unkown'); // TODO: fix exception
+            throw new InvalidTypeException('int|null', 'unknown'); // TODO: fix exception
         }
         return $filteredInt;
     }
@@ -108,7 +108,7 @@ class Env
     {
         $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_FLOAT);
         if ($value === false) {
-            throw new InvalidTypeException('float', 'unkown'); // TODO: fix exception
+            throw new InvalidTypeException('float', 'unknown'); // TODO: fix exception
         }
         return $value;
     }
@@ -126,7 +126,7 @@ class Env
         }
         $filteredFloat = filter_var($value, \FILTER_VALIDATE_FLOAT);
         if ($filteredFloat === false) {
-            throw new InvalidTypeException('float|null', 'unkown'); // TODO: fix exception
+            throw new InvalidTypeException('float|null', 'unknown'); // TODO: fix exception
         }
         return $filteredFloat;
     }
