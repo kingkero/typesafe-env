@@ -4,8 +4,6 @@ Install via `composer req kero/typesafe-env`
 
 ![GitHub latest tag](https://img.shields.io/github/v/tag/kingkero/typesafe-env) [![codecov](https://codecov.io/gh/kingkero/typesafe-env/graph/badge.svg?token=4EAAZYEAN3)](https://codecov.io/gh/kingkero/typesafe-env) ![license: MIT](https://img.shields.io/github/license/kingkero/typesafe-env)
 
-
-
 ## Usage
 
 Assuming the following environment variables
@@ -17,6 +15,10 @@ APP_STRING_OR_NULL=null
 APP_DEBUG=true
 APP_LOG=false
 APP_BOOL_OR_NULL=null
+
+APP_PI=3
+
+APP_BETTER_PI=3.14
 ```
 
 ```php
@@ -28,6 +30,10 @@ var_dump(Env::getNullableString('APP_STRING_OR_NULL')); // NULL
 var_dump(Env::getBool('APP_DEBUG')); // bool(true)
 var_dump(Env::getBool('APP_LOG')); // bool(false)
 var_dump(Env::getNullableBool('APP_BOOL_OR_NULL')); // NULL
+
+var_dump(Env::getInt('APP_PI')); // int(3)
+
+var_dump(Env::getFloat('APP_PI')); // float(3.14)
 ```
 
 ❗ Due to Laravel's implementation, both values `null` and `(null)` are treated as `NULL`.
