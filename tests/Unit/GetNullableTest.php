@@ -31,3 +31,7 @@ it('should throw an InvalidTypeException for a string variable when using getNul
 it('should throw an InvalidTypeException for a string variable when using getNullableInt', function () {
     Env::getNullableInt('TEST_STRING');
 })->throws(InvalidTypeException::class, 'Expected `int|null` but received `unknown`.');
+
+it('should throw an InvalidTypeException for a string variable when using getNullableFloat', function () {
+    Env::getNullableFloat('TEST_STRING');
+})->throws(InvalidTypeException::class, 'Expected `float|null` but received `unknown`.');

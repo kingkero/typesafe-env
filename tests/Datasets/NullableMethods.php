@@ -6,4 +6,5 @@ dataset('nullableMethods', [
     [[Env::class, 'getNullableString']],
     [[Env::class, 'getNullableBool']],
     [[Env::class, 'getNullableInt']],
+    [[Env::class, 'getNullableFloat']],
 ]);
