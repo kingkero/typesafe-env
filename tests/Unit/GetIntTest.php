@@ -22,4 +22,4 @@ it('should return 0 as default for an undefined variable', function () {
 
 it('should throw an InvalidTypeException for a string value', function () {
     Env::getInt('TEST_STRING');
-})->throws(InvalidTypeException::class, 'Expected `int` but received `unknown`.');
+})->throws(InvalidTypeException::class, 'env(TEST_STRING) expected `int`');
