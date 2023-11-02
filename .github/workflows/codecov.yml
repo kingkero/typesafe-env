@@ -18,12 +18,6 @@ jobs:
           php-version: 8.2
           tools: composer:v2
           coverage: xdebug
-      
-      - name: Cache Composer dependencies
-        uses: actions/cache@v3
-        with:
-          path: /tmp/composer-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Install Dependencies
         uses: php-actions/composer@v6
