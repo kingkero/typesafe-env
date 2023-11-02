@@ -98,4 +98,36 @@ class Env
         }
         return $filteredInt;
     }
+
+    /**
+     * Get `float` value of an environment variable.
+     *
+     * @throws InvalidTypeException
+     */
+    public static function getFloat(string $key, float $default = 0.0): float
+    {
+        $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_FLOAT);
+        if (!is_float($value)) {
+            throw new InvalidTypeException('float', 'unkown'); // TODO: fix exception
+        }
+        return $value;
+    }
+
+    /**
+     * Get `float` or `null` value of an environment variable.
+     *
+     * @throws InvalidTypeException
+     */
+    public static function getNullableFloat(string $key, int|null $default = null): float|null
+    {
+        $value = SupportEnv::get($key, $default);
+        if ($value === null) {
+            return $value;
+        }
+        $filteredFloat = filter_var($value, \FILTER_VALIDATE_FLOAT);
+        if (!is_float($filteredFloat)) {
+            throw new InvalidTypeException('float|null', 'unkown'); // TODO: fix exception
+        }
+        return $filteredFloat;
+    }
 }
