@@ -18,7 +18,7 @@ it('should return true for an env with value "TRUE" (uppercase)', function () {
 
 it('should throw an exception for trying to get a bool that is a string', function () {
     Env::getBool('TEST_STRING');
-})->throws(InvalidTypeException::class, 'Expected `boolean` but received `string`.');
+})->throws(InvalidTypeException::class, 'env(TEST_STRING) expected `boolean`, got \'Hello World!\'');
 
 it('should return false for an env with value "false"', function () {
     expect(Env::getBool('TEST_BOOL_FALSE'))->toBeFalse();
