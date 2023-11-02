@@ -66,4 +66,18 @@ class Env
 
         return $value;
     }
+
+    /**
+     * Get `int` value of an environment variable.
+     *
+     * @throws InvalidTypeException
+     */
+    public static function getInt(string $key, int $default = 0): int
+    {
+        $value = filter_var(SupportEnv::get($key, $default), \FILTER_VALIDATE_INT);
+        if (!is_int($value)) {
+            throw new InvalidTypeException('int', 'unkown'); // TODO: fix exception
+        }
+        return $value;
+    }
 }
