@@ -8,13 +8,19 @@ use Throwable;
 class InvalidTypeException extends RuntimeException
 {
     public function __construct(
+        string $key,
         string $expectedType,
-        string $actualType,
+        mixed $val,
         int $code = 0,
         Throwable|null $previous = null
     ) {
         parent::__construct(
-            sprintf('Expected `%s` but received `%s`.', $expectedType, $actualType),
+            sprintf(
+                'env(%s) expected `%s`, got %s',
+                $key,
+                $expectedType,
+                var_export($val, true),
+            ),
             $code,
             $previous,
         );

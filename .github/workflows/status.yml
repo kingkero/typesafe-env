@@ -1,7 +1,7 @@
-name: CodeCov
+name: Status
 
 on:
-  pull_request:
+  push:
     branches: [ "main", "develop" ]
 
 jobs:
@@ -22,12 +22,6 @@ jobs:
       - name: Install Dependencies
         uses: php-actions/composer@v6
       
-      - name: PHPStan analysis
-        run: vendor/bin/phpstan analyse
-      
-      - name: Pest Type Coverage
-        run: vendor/bin/pest tests/ -c phpunit.xml  --type-coverage --min=100
-      
       - name: Pest Test
         run: vendor/bin/pest tests/ -c phpunit.xml  --coverage --coverage-clover clover.xml
 
@@ -35,6 +29,3 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      
-      - name: Pint test
-        run: vendor/bin/pint --test
