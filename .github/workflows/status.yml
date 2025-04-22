@@ -1,5 +1,7 @@
 name: Status
 
+permissions: read-all
+
 on:
   push:
     branches: [ "main", "develop" ]
